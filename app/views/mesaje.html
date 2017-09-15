@@ -1,0 +1,125 @@
+<section
+   class="layout-column flex"
+
+  >
+  <md-content
+    layout="column"
+    flex
+  >
+    <md-toolbar
+      ng-hide="mesaje.openSearch || mesaje.openOpcion"
+      class="md-hue-2"
+     >
+       <div
+       class="md-toolbar-tools"
+         >
+           <md-button
+            class="md-icon-button"
+            aria-label="Settings"
+            ng-disabled="true"
+            >
+                <md-icon
+                md-svg-icon="img/icons/menu.svg"
+                >
+              </md-icon>
+
+           </md-button>
+
+            <h2
+             flex md-truncate
+             >
+             Mensages
+           </h2>
+
+
+            <md-button
+              ng-click="mesaje.toggleToolbar()"
+              class="md-raised md-primary"
+              aria-label="search"
+            >
+              buscar
+            </md-button>
+
+            <md-menu>
+               <md-button
+                aria-label="Open demo menu"
+                ng-click="$mdMenu.open($event)"
+                >
+                  opciones
+
+               </md-button>
+               <md-menu-content
+                >
+                 <md-menu-item
+                 ng-repeat="item in mesaje.listaOpciones"
+                 >
+                   <md-button
+                   ng-click="mesaje.openDialog(item, $event)"
+                   >
+                   {{item.title}}
+                   </md-button>
+                 </md-menu-item>
+               </md-menu-content>
+             </md-menu>
+                </div>
+             </md-toolbar>
+        <!-- ocultar y mostrar el buscador -->
+     <md-toolbar
+      ng-show="mesaje.openSearch"
+      class="ng-hide md-hue-2"
+     >
+       <div
+        class="md-toolbar-tools"
+       >
+        <div flex>
+          <md-input-container
+           layout="row"
+          >
+            <label>Buscar</label>
+            <input ng-model="mesaje.searchtxt">
+          </md-input-container>
+        </div>
+         <md-button
+           ng-click="mesaje.toggleToolbar()"
+           class="md-raised md-warn"
+           aria-label="volver"
+         >
+           volver
+         </md-button>
+       </div>
+     </md-toolbar>
+
+    <md-tabs
+      class="md-primary flex"
+      md-stretch-tabs="always"
+      md-border-bottom
+    >
+
+        <!-- lista de actividades -->
+          <md-tab
+           ng-repeat="item in mesaje.menuList"
+           md-on-select="mesaje.go(item.nameUrl)"
+           >
+           <md-tab-label>
+
+              {{item.what}}
+
+          </md-tab-label>
+
+          <md-tab-body >
+
+            <div
+            class=""
+            ui-view="{{ item.nameView }}"
+            >
+
+            </div>
+
+      </md-tab-body>
+
+      </md-tab>
+
+
+    </md-tabs>
+  </md-content>
+</section>

@@ -1,0 +1,56 @@
+<md-content class="md-padding">
+  <md-list>
+    <md-list-item
+     class="md-3-line"
+      ng-repeat="item in formFavorites.favoritos | filter:buscar"
+      ng-click="formFavorites.toggleToolbars()"
+      >
+      <img
+       ng-src="{{item.face}}?{{$index}}"
+        class="md-avatar"
+         alt="{{item.who}}">
+      <div
+       class="md-list-item-text"
+       >
+        <h3>
+          {{item.what}}
+        </h3>
+        <h4>
+          {{item.who}}
+        </h4>
+        <p>
+          {{item.notes}}
+        </p>
+      </div>
+
+      <div>
+      <md-button
+      ng-click="formFavorites.remo($index)"
+      ng-show="formFavorites.openSearch"
+
+      >
+        Eliminar
+      </md-button>
+      <md-button
+      ng-click="formFavorites.duple($index)"
+      ng-show="formFavorites.openSearch"
+
+      >
+        Duplicar
+      </md-button>
+      <md-button
+      ng-click="formFavorites.duple($index)"
+      ng-show="formFavorites.openSearch"
+      >
+
+      Favoritos
+
+      </md-button>
+    </div>
+      <md-divider
+       md-inset ng-if="!$last"
+       >
+     </md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>

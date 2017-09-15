@@ -1,0 +1,65 @@
+<md-content class="md-padding">
+  <md-list>
+    <md-list-item
+     class="md-3-line"
+      ng-click="formNuevosMensages.toggleMensages($index)"
+      ng-class="{'md-whiteframe-3dp': item.activo}"
+      ng-repeat="item in formNuevosMensages.mensagesNuevos.fullListMain | filter:mesaje.filtrosMensages"
+      >
+      <!-- <img
+       ng-src="{{item.face}}?{{$index}}"
+        class="md-avatar"
+         alt="{{item.who}}"
+         > -->
+      <div
+       class="md-list-item-text">
+        <h2>
+          {{item.usuario.email}}
+        </h2>
+        <h3>
+          {{item.asunto}}
+        </h3>
+        <p>
+          {{item.blog.id}}
+        </p>
+        <p>
+        {{item.mensaje}}
+        </p>
+        <p>
+        {{item.createdAt}}
+        </p>
+        <p>
+        {{item.tipo}}
+        </p>
+        <p>
+        {{item.activo}}
+        </p>
+        <p>
+        {{item.titulo}}
+        </p>
+
+      </div>
+
+      <div>
+      <md-button
+      ng-click="formNuevosMensages.remo($index)"
+      ng-show="item.activo"
+
+      >
+        Eliminar
+      </md-button>
+      <md-button
+      ng-click="formNuevosMensages.duple($index)"
+      ng-show="item.activo"
+
+      >
+        Duplicar
+      </md-button>
+    </div>
+      <md-divider
+       md-inset ng-if="!$last"
+       >
+     </md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>

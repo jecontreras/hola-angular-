@@ -1,0 +1,23 @@
+<md-dialog>
+  <form ng-submit="formAmigos.agregar()">
+    <div>
+          <md-input-container>
+            <label>Nombre</label>
+            <input ng-model="login.user.title" type="text">
+          </md-input-container>
+          <md-input-container>
+            <label>Apellido</label>
+            <input ng-model="login.pass.title"  type="text">
+          </md-input-container>
+            <md-input-container>
+              <md-button type="submit" value="enviar">Entrar</md-button>
+            </md-input-container>
+            <md-input-container>
+              <md-button
+               ng-click="dashboard.lates" >
+              salir
+            </md-button>
+            </md-input-container>
+        </div>
+  </form>
+</md-dialog>

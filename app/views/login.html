@@ -1,0 +1,42 @@
+<div style="margin: auto;
+">
+
+<md-content
+   md-theme="docs-dark"
+   layout-gt-sm="row"
+   layout-padding>
+      <form
+        ng-submit="login.longin()"
+      >
+        <md-input-container>
+           <label>
+             Email
+           </label>
+            <input
+             ng-model="login.user"
+             >
+        </md-input-container>
+        <br>
+        <md-input-container>
+          <label>
+            Password
+          </label>
+        <input
+         ng-model="login.pass"
+         type="password">
+           </md-input-container>
+           <br>
+         <md-button
+          type="submit"
+           value="enviar"
+           >
+           Entrar
+         </md-button>
+     </form>
+     <div
+      class=""
+       ng-show="login.error">
+       {{login.error}}
+     </div>
+  </md-content>
+</div>

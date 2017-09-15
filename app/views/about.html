@@ -1,0 +1,137 @@
+<div
+ layout="column"
+  ng-cloak flex
+  >
+
+  <section
+   layout="row"
+    flex
+    >
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-xs')"
+        md-whiteframe="4"
+    >
+        <md-toolbar
+         class="md-theme-indigo"
+         >
+          <figure>
+            <img
+             src="images/yeoman.png"
+              alt="Logo"/>
+          </figure>
+          <!-- <p>Nombre {{ about.token}}</p> -->
+
+        </md-toolbar>
+
+      <md-content>
+        <md-list>
+          <md-list-item
+           class="md-3-line"
+           ng-repeat="item in about.listaMenu"
+          >
+            <div
+             class="md-list-item-text">
+              <md-icon
+                  ng-style="{color: font.color}"
+                  aria-label="{{ font.name }}"
+                  class="material-icons step"
+                  ng-class="it.size"
+                  ng-bind="font.name"
+                >
+              </md-icon>
+              <md-button
+               ui-sref="{{ item.nameUrl }}"
+               >{{item.what}}
+              </md-button>
+            </div>
+          </md-list-item>
+          <md-divider
+           ng-if="!$last"
+           >
+          </md-divider>
+          <md-list-item
+           class="md-3-line"
+            ng-repeat="item in about.messages"
+            >
+            <div
+             class="md-list-item-text"
+             >
+              <md-icon
+                  ng-style="{color: font.color}"
+                  aria-label="{{ font.name }}"
+                  class="material-icons step"
+                  ng-class="it.size"
+                  ng-bind="font.name"
+                  >
+              </md-icon>
+              <h3>
+                {{item.who}}
+              </h3>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+
+      <md-content>
+        <md-list>
+          <md-list-item
+           class="md-3-line"
+           ng-repeat="item in about.listaMenuOp"
+          >
+            <div
+             class="md-list-item-text"
+             >
+              <md-icon
+                  ng-style="{color: font.color}"
+                  aria-label="{{ font.name }}"
+                  class="material-icons step"
+                  ng-class="it.size"
+                  ng-bind="font.name"
+                  >
+              </md-icon>
+              <md-button
+                  ui-sref="{{ item.nameUrl }}"
+               >
+               {{item.what}}
+              </md-button>
+            </div>
+          </md-list-item>
+          <md-divider
+                ng-if="!$last"
+                >
+              </md-divider>
+          <md-list-item
+                class="md-3-line"
+                ng-repeat="item in about.messages"
+                >
+            <div
+                class="md-list-item-text"
+             >
+              <md-icon
+                  ng-style="{color: font.color}"
+                  aria-label="{{ font.name }}"
+                  class="material-icons step"
+                  ng-class="it.size"
+                  ng-bind="font.name"
+                  >
+              </md-icon>
+              <h3>
+                {{item.who}}
+              </h3>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+
+    </md-sidenav>
+    <md-content
+      layout="column"
+      flex
+      ui-view=""
+    >
+
+    </md-content>
+  </section>
+</div>
